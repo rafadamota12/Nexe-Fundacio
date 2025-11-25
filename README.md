@@ -35,17 +35,6 @@ Explica aquí brevemente cómo ejecutar o iniciar el proyecto tras la instalaci�
 - OpenCV para procesamiento de imágenes
 - Raspberry Pi y librerías específicas para hardware
 
----
-
-## 🤝 Contribuciones
-
-Si deseas contribuir, crea un fork, realiza tus cambios en una rama nueva y envía un pull request.
-
----
-
-## 📄 Licencia
-
-Agrega aquí la información de la licencia correspondiente.
 
 
 
