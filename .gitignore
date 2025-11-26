@@ -1,0 +1,4 @@
+.NexeEnv/
+__pycache__/
+*.pyc
+
