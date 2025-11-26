@@ -9,21 +9,21 @@ Este proyecto requiere Python 3.11 para asegurar compatibilidad con TensorFlow y
 
 ### Pasos para instalar Python 3.11 en Linux:
 
-sudo apt update
-sudo apt install wget build-essential libssl-dev zlib1g-dev libncurses-dev libreadline-dev libffi-dev libsqlite3-dev
-wget https://www.python.org/ftp/python/3.11.0/Python-3.11.0.tgz
-tar -xf Python-3.11.0.tgz
-cd Python-3.11.0
-./configure --enable-optimizations
-make -j$(nproc)
-sudo make altinstall
+- sudo apt update
+- sudo apt install wget build-essential libssl-dev zlib1g-dev libncurses-dev libreadline-dev libffi-dev libsqlite3-dev
+- wget https://www.python.org/ftp/python/3.11.0/Python-3.11.0.tgz
+- tar -xf Python-3.11.0.tgz
+- cd Python-3.11.0
+- ./configure --enable-optimizations
+- make -j$(nproc)
+- sudo make altinstall
 
 
 ### Crear entorno virtual con Python 3.11
 
-python3.11 -m venv .NexeEnv311
-source .NexeEnv311/bin/activate
-pip install -r requirements.txt
+- python3.11 -m venv .NexeEnv311
+- source .NexeEnv311/bin/activate
+- pip install -r requirements.txt
 
 
 Esto garantiza que las dependencias se instalen en un ambiente controlado con la versión apropiada de Python.
