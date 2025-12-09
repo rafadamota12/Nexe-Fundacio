@@ -1,5 +1,7 @@
-tensorflow
-numpy
+
+tensorflow==2.19.0
+numpy<2
+protobuf<5
 opencv-python
 matplotlib
 pandas
@@ -9,3 +11,4 @@ picamera
 h5py
 tensorflow-hub
 jupyter
+mediapipe==0.10.18
