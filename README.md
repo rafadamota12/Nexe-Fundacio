@@ -21,7 +21,7 @@ Este proyecto requiere Python 3.11 para asegurar compatibilidad con TensorFlow y
 
 ### Crear entorno virtual con Python 3.11
 
-- python3.11 -m venv .NexeEnv311
+- python3 -m venv --system-site-packages .NexeEnv311
 - source .NexeEnv311/bin/activate
 - pip install -r requirements.txt
 
