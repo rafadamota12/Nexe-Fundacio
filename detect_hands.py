@@ -4,7 +4,7 @@ import cv2, mediapipe as mp
 picam2 = Picamera2()
 config = picam2.create_preview_configuration(
     main = {"size": (1080, 920), "format": "RGB888"},
-    controls = {"FrameRate": 100.0}
+    controls = {"FrameRate": 25.0}
 )
 picam2.configure(config)
 picam2.start() #Inicia la camara
