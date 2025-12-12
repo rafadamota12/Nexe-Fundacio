@@ -39,7 +39,12 @@ Este proyecto consiste en una aplicación interactiva que facilita actividades r
 
 ## 🚀 Uso
 
-Explica aquí brevemente cómo ejecutar o iniciar el proyecto tras la instalación.
+Para hacer uso (ACTUALIZANDO:
+
+Abrir un terminal:
+
+- source .NexeEnv311/bin/activate
+- python3.11 Entorno/Entorno_2img_funciona.py
 
 ---
 
