@@ -8,12 +8,12 @@ import entorno
 
 APP_DIR = Path(__file__).resolve().parent
 BACKGROUND = APP_DIR / "logo.png"
-DIR_ALUMNES = APP_DIR / "Alumnes"
+DIR_ALUMNES = APP_DIR / "Alumnos"
 
 current_thread = None
 btn_widgets = []
 
-# ----------------- Utilidades UI -----------------
+# ----------------- Utilidades Interfaz Usuario -----------------
 def set_buttons_state(state: str):
     for b in btn_widgets:
         try:
@@ -61,11 +61,11 @@ def escribir_favoritos(alumno_dir: Path, alumno: str, favoritos: list[str]):
     payload = {"alumno": alumno, "favoritos": favoritos}
     fp.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
 
+# Validación de que se eligen numeros pares de cancion/imagen
 def validar_par(seleccion: list[str]) -> bool:
-    # Obligatorio número par
     return (len(seleccion) % 2) == 0
 
-# ----------------- Lanzar entorno -----------------
+# Lanzamiento entorno
 def lanzar_entorno(alumno_dir: Path, stems: list[str] | None):
     global current_thread
     if current_thread is not None and current_thread.is_alive():
