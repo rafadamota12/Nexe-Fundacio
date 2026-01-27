@@ -228,35 +228,53 @@ def abrir_editor_tutor(alumno: str):
 # ---- UI principal ----
 root = tk.Tk()
 root.title("Nexe Entorno")
-root.geometry("420x260")
+root.geometry("512x430")
 root.resizable(False, False)
 
-main_canvas = tk.Canvas(root, highlightthickness=0, bd=3, bg=bg_img)
+main_canvas = tk.Canvas(root, bg="#ffffff" ,highlightthickness=0, bd=3)
 main_canvas.pack(fill="both", expand=True)
 
 bg_img = tk.PhotoImage(file=str(BACKGROUND))
+bg_img = bg_img.subsample(2, 2)
 main_canvas.create_image(0, 0, image=bg_img, anchor="nw")
 
-title_lbl = tk.Label(main_canvas, text="Selecciona alumno/a:", font=("Segoe UI", 13), fg="#000000")
-info_lbl = tk.Label(main_canvas, text="ESC para salir del entorno.", font=("Segoe UI", 10), bg="#ffffff", fg="#000000")
+title_lbl = tk.Label(main_canvas, text="Selecciona alumno/a:", font=("Segoe UI", 13), compound="top",  bg="white")
+info_lbl = tk.Label(main_canvas, text="ESC para salir del entorno.", font=("Segoe UI", 10),  bg="white")
 
 alumnos = listar_alumnos(DIR_ALUMNES)
 alumno_var = tk.StringVar(value=alumnos[0] if alumnos else "")
-combo_alumno = ttk.Combobox(main_canvas, textvariable=alumno_var, values=alumnos, state="readonly")
 
-btn_iniciar = ttk.Button(main_canvas, text="Iniciar", command=lambda: iniciar_normal(alumno_var.get()))
-btn_editar = ttk.Button(main_canvas, text="Editar favoritos (tutor)", command=lambda: abrir_editor_tutor(alumno_var.get()))
-btn_exit = ttk.Button(main_canvas, text="Salir", command=root.destroy)
+stylecombobox = ttk.Style()
+stylecombobox.map("TCombobox",
+          fieldbackground=[("readonly", "white")],
+          selectbackground=[("readonly", "white")],
+          selectforeground=[("readonly", "black")])
+
+combo_alumno = ttk.Combobox(
+    main_canvas,
+    textvariable=alumno_var,
+    values=alumnos,
+    state="readonly"
+)
+
+stylebtn = ttk.Style()
+stylebtn.configure("White.TButton", background="#ADADAD", foreground="black")
+
+btn = ttk.Button(root, text="Iniciar", style="White.TButton")
+
+btn_iniciar = ttk.Button(main_canvas, text="Iniciar", style="White.TButton",command=lambda: iniciar_normal(alumno_var.get()))
+btn_editar = ttk.Button(main_canvas, text="Editar favoritos", style="White.TButton", command=lambda: abrir_editor_tutor(alumno_var.get()))
+btn_exit = ttk.Button(main_canvas, text="Salir", style="White.TButton", command=root.destroy)
 
 btn_widgets = [combo_alumno, btn_iniciar, btn_editar, btn_exit]
 
 main_canvas.create_window(20, 20, anchor="nw", window=title_lbl)
-main_canvas.create_window(70, 70, anchor="nw", window=combo_alumno, width=280, height=30)
-main_canvas.create_window(70, 115, anchor="nw", window=btn_iniciar, width=140, height=32)
-main_canvas.create_window(220, 115, anchor="nw", window=btn_editar, width=170, height=32)
+main_canvas.create_window(30, 70, anchor="nw", window=combo_alumno, width=180, height=30)
+main_canvas.create_window(30, 115, anchor="nw", window=btn_iniciar, width=140, height=32)
+main_canvas.create_window(30, 165, anchor="nw", window=btn_editar, width=140, height=32)
 
-main_canvas.create_window(20, 175, anchor="nw", window=info_lbl)
-main_canvas.create_window(320, 210, anchor="nw", window=btn_exit, width=80, height=30)
+main_canvas.create_window(20, 380, anchor="nw", window=info_lbl)
+main_canvas.create_window(320, 380, anchor="nw", window=btn_exit, width=80, height=30)
 
 if not alumnos:
     messagebox.showwarning(
