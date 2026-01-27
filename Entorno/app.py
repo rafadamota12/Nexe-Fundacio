@@ -1,4 +1,8 @@
 # -*- coding: utf-8 -*-
+# Importacion de tkinter para creacion de interfaz gráfica
+# Importacion threading para ejecutar el entorno en un segundo plano
+# Importacion json para leer/escribir el favoritos.json
+# Importacion del modulo entorno
 import tkinter as tk
 from tkinter import ttk, messagebox
 from pathlib import Path
@@ -13,7 +17,8 @@ DIR_ALUMNES = APP_DIR / "Alumnos"
 current_thread = None
 btn_widgets = []
 
-# ----------------- Utilidades Interfaz Usuario -----------------
+# ----Interfaz usuario----
+# Estado de los botones
 def set_buttons_state(state: str):
     for b in btn_widgets:
         try:
@@ -26,7 +31,7 @@ def listar_alumnos(base: Path) -> list[str]:
         return []
     return sorted([p.name for p in base.iterdir() if p.is_dir()])
 
-# ----------------- Datos alumno -----------------
+# ----Datos alumnos----
 def obtener_stems_disponibles(alumno_dir: Path) -> list[str]:
     dir_audios = alumno_dir / "Audios"
     dir_imagenes = alumno_dir / "Imagenes"
@@ -65,9 +70,10 @@ def escribir_favoritos(alumno_dir: Path, alumno: str, favoritos: list[str]):
 def validar_par(seleccion: list[str]) -> bool:
     return (len(seleccion) % 2) == 0
 
-# Lanzamiento entorno
+# ----Lanzamiento entorno----
 def lanzar_entorno(alumno_dir: Path, stems: list[str] | None):
     global current_thread
+    
     if current_thread is not None and current_thread.is_alive():
         return
 
@@ -79,7 +85,6 @@ def lanzar_entorno(alumno_dir: Path, stems: list[str] | None):
         try:
             entorno.main(alumno_dir, screen_w, screen_h, stems_favoritos=stems)
         except Exception as e:
-            # Congelar el mensaje en el lambda para evitar NameError
             root.after(0, lambda msg=str(e): messagebox.showerror("Error", msg))
         finally:
             root.after(0, lambda: set_buttons_state("normal"))
@@ -87,7 +92,7 @@ def lanzar_entorno(alumno_dir: Path, stems: list[str] | None):
     current_thread = threading.Thread(target=worker)
     current_thread.start()
 
-# ----------------- Acciones -----------------
+# ----Acciones----
 def iniciar_normal(alumno: str):
     if not alumno:
         messagebox.showwarning("Falta alumno", "Selecciona un alumno/a primero.")
@@ -133,7 +138,7 @@ def abrir_editor_tutor(alumno: str):
 
     win = tk.Toplevel(root)
     win.title(f"Editar favoritos (tutor): {alumno}")
-    win.geometry("560x560")
+    win.geometry("1080x1920")
     win.resizable(False, False)
 
     tk.Label(
@@ -159,7 +164,7 @@ def abrir_editor_tutor(alumno: str):
 
     vars_por_stem: dict[str, tk.BooleanVar] = {}
 
-    # --- Opción B: tk.Checkbutton grande ---
+    # Botones para cada nombre base
     for stem in disponibles:
         v = tk.BooleanVar(value=(stem in favs_prev))  # estado True/False 
         vars_por_stem[stem] = v
@@ -220,13 +225,13 @@ def abrir_editor_tutor(alumno: str):
     ttk.Button(bottom, text="Guardar", command=guardar).pack(side="right")
     ttk.Button(bottom, text="Guardar e iniciar", command=guardar_e_iniciar).pack(side="right", padx=8)
 
-# ----------------- UI principal -----------------
+# ---- UI principal ----
 root = tk.Tk()
 root.title("Nexe Entorno")
 root.geometry("420x260")
 root.resizable(False, False)
 
-main_canvas = tk.Canvas(root, highlightthickness=0, bd=3)
+main_canvas = tk.Canvas(root, highlightthickness=0, bd=3, bg=bg_img)
 main_canvas.pack(fill="both", expand=True)
 
 bg_img = tk.PhotoImage(file=str(BACKGROUND))

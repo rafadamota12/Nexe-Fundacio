@@ -13,6 +13,7 @@ def punto_en_rect(x, y, rect):
     x1, y1, x2, y2 = rect
     return x1 <= x <= x2 and y1 <= y <= y2
 
+# definición de numero de imagenes-audio que quieres ver y distribución de cada una
 def grid_shape(n: int):
     mapping = {2: (1, 2), 4: (2, 2), 6: (2, 3), 8: (2, 4), 10: (2, 5), 12: (3, 4)}
     if n not in mapping:
@@ -108,13 +109,11 @@ def main(alumno_dir: Path, screen_w: int | None = None, screen_h: int | None = N
                     wrist = results.multi_hand_landmarks[0].landmark[0]
                     hand_center_px = (int(wrist.x * w), int(wrist.y * h))
 
-                ui_frame = cv2.cvtColor(frame_rgb, cv2.COLOR_RGB2BGR)
-                ui_frame[:] = (15, 15, 15)
 
                 for key, (x1, y1, x2, y2) in ZONAS.items():
                     zone_w, zone_h = (x2 - x1), (y2 - y1)
                     src_rs = cv2.resize(imagenes[key], (zone_w, zone_h), interpolation=cv2.INTER_AREA)
-                    ui_frame[y1:y2, x1:x2] = src_rs
+                    frame_rgb[y1:y2, x1:x2] = src_rs
 
                 now = time.time()
                 target_actual = None
@@ -146,15 +145,15 @@ def main(alumno_dir: Path, screen_w: int | None = None, screen_h: int | None = N
 
                 for key, (x1, y1, x2, y2) in ZONAS.items():
                     color = (0, 0, 0) if key != current_target else (0, 255, 0)
-                    cv2.rectangle(ui_frame, (x1, y1), (x2, y2), color, 20)
+                    cv2.rectangle(frame_rgb, (x1, y1), (x2, y2), color, 20)
 
                 if hand_center_px is not None:
-                    cv2.circle(ui_frame, hand_center_px, 20, (0, 255, 0), -1)
+                    cv2.circle(frame_rgb, hand_center_px, 20, (0, 255, 0), -1)
 
                 if screen_w and screen_h:
-                    ui_show = cv2.resize(ui_frame, (screen_w - 50, screen_h - 50), interpolation=cv2.INTER_AREA)
+                    ui_show = cv2.resize(frame_rgb, (screen_w - 50, screen_h - 50), interpolation=cv2.INTER_AREA)
                 else:
-                    ui_show = ui_frame
+                    ui_show = frame_rgb
 
                 cv2.imshow(WINDOW, ui_show)
 
