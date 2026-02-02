@@ -22,19 +22,32 @@ def grid_shape(n: int):
 
 def generar_zonas(w, h, n):
     rows, cols = grid_shape(n)
-    cell_w = w // cols
-    cell_h = h // rows
-    
-    gap = 100
-    
+
+    gap = 150  # separacion entre celdas
+
+    # Tamaño de cada celda
+    cell_w = (w - (cols + 1) * gap) // cols
+    cell_h = (h - (rows + 1) * gap) // rows
+
+    # Tamaño real del grid
+    grid_w = cols * cell_w + (cols + 1) * gap
+    grid_h = rows * cell_h + (rows + 1) * gap
+
+    # Para centrar el bloque
+    offset_x = (w - grid_w) // 2
+    offset_y = (h - grid_h) // 2
+
     zonas = {}
     for i in range(n):
         r, c = divmod(i, cols)
-        x1 = c * cell_w
-        y1 = r * cell_h
-        x2 = (c + 1) * cell_w - gap if c < cols - 1 else w - gap
-        y2 = (r + 1) * cell_h - gap if r < rows - 1 else h - gap
+
+        x1 = offset_x + gap + c * (cell_w + gap)
+        y1 = offset_y + gap + r * (cell_h + gap)
+        x2 = x1 + cell_w
+        y2 = y1 + cell_h
+
         zonas[i] = (x1, y1, x2, y2)
+
     return zonas
 
 def cargar_pares(alumno_dir: Path, stems_filtrados: list[str] | None):
@@ -154,7 +167,7 @@ def main(alumno_dir: Path, screen_w: int | None = None, screen_h: int | None = N
 
                 for key, (x1, y1, x2, y2) in ZONAS.items():
                     color = (0, 0, 0) if key != current_target else (0, 0, 255)
-                    cv2.rectangle(frame_ui, (x1, y1), (x2, y2), color, 50)
+                    cv2.rectangle(frame_ui, (x1, y1), (x2, y2), color, 30)
 
                 if hand_center_px is not None:
                     cv2.circle(frame_ui, hand_center_px, 30, (0, 0, 255), -1)
@@ -167,7 +180,6 @@ def main(alumno_dir: Path, screen_w: int | None = None, screen_h: int | None = N
                 cv2.imshow(WINDOW, ui_show)
 
                 if cv2.waitKey(1) & 0xFF == 27:
-                    picam2.close()
                     break
     finally:
         cv2.destroyAllWindows()
@@ -181,4 +193,10 @@ def main(alumno_dir: Path, screen_w: int | None = None, screen_h: int | None = N
                 picam2.close()
             except Exception:
                 pass
-        pygame.mixer.quit()
+            try:
+                pygame.mixer.music.stop()
+            except Exception:
+                pass
+            pygame.mixer.quit()
+
+        
