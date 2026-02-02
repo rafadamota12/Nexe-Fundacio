@@ -108,6 +108,8 @@ Nexe-Fundacio/
 ## 📷 Capturas
 ![Interfaz principal](Screenshots/demoentorno.png)
 ![Interfaz principal](Screenshots/demoentorno1.png)
+![Interfaz principal](Screenshots/demoentorno2.png)
+![Interfaz principal](Screenshots/demoentorno3.png)
 
 ## AUTOR
 **Rafael Da Mota**
@@ -223,6 +225,9 @@ Nexe-Fundacio/
 
 ![Interfaz principal](Screenshots/demoentorno.png)
 ![Interfaz principal](Screenshots/demoentorno1.png)
+![Interfaz principal](Screenshots/demoentorno2.png)
+![Interfaz principal](Screenshots/demoentorno3.png)
+
 
 ## AUTHOR
 
