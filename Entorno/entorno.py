@@ -24,14 +24,16 @@ def generar_zonas(w, h, n):
     rows, cols = grid_shape(n)
     cell_w = w // cols
     cell_h = h // rows
-
+    
+    gap = 100
+    
     zonas = {}
     for i in range(n):
         r, c = divmod(i, cols)
         x1 = c * cell_w
         y1 = r * cell_h
-        x2 = (c + 1) * cell_w if c < cols - 1 else w
-        y2 = (r + 1) * cell_h if r < rows - 1 else h
+        x2 = (c + 1) * cell_w - gap if c < cols - 1 else w - gap
+        y2 = (r + 1) * cell_h - gap if r < rows - 1 else h - gap
         zonas[i] = (x1, y1, x2, y2)
     return zonas
 
@@ -144,14 +146,14 @@ def main(alumno_dir: Path, screen_w: int | None = None, screen_h: int | None = N
                                 selected_once[current_target] = True
 
                 for key, (x1, y1, x2, y2) in ZONAS.items():
-                    color = (0, 0, 0) if key != current_target else (0, 255, 0)
-                    cv2.rectangle(frame_rgb, (x1, y1), (x2, y2), color, 20)
+                    color = (0, 0, 0) if key != current_target else (0, 0, 255)
+                    cv2.rectangle(frame_rgb, (x1, y1), (x2, y2), color, 50)
 
                 if hand_center_px is not None:
-                    cv2.circle(frame_rgb, hand_center_px, 20, (0, 255, 0), -1)
+                    cv2.circle(frame_rgb, hand_center_px, 30, (0, 0, 255), -1)
 
                 if screen_w and screen_h:
-                    ui_show = cv2.resize(frame_rgb, (screen_w - 50, screen_h - 50), interpolation=cv2.INTER_AREA)
+                    ui_show = cv2.resize(frame_rgb, (screen_w - 500, screen_h - 500), interpolation=cv2.INTER_AREA)
                 else:
                     ui_show = frame_rgb
 

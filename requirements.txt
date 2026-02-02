@@ -1,14 +1,5 @@
-
-tensorflow==2.19.0
-numpy<2
-protobuf<5
-opencv-python
-matplotlib
-pandas
-scikit-learn
-RPi.GPIO
-picamera
-h5py
-tensorflow-hub
-jupyter
-mediapipe==0.10.18
+sudo apt update
+sudo apt install git
+git --version
+sudo apt install python3-opencv -y
+python3 -m pip install --break-system-packages mediapipe

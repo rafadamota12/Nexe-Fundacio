@@ -1,7 +1,7 @@
 [Desktop Entry]
 Type=Application
 Name=Nexe Entorno
-Exec=python3 /home/nexe/Desktop/Nexe-Fundacio/Entorno/app.py
-Icon=/home/nexe/Desktop/Nexe-Fundacio/Entorno/logo.jpg
+Exec=python3 /home/nexe/Nexe-Fundacio/Entorno/app.py
+Icon=/home/nexe/Nexe-Fundacio/Entorno/logo.jpg
 Terminal=false
 Categories=Education;
