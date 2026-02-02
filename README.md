@@ -1,11 +1,11 @@
-# 🎮 Entorno Interactivo para Nexe Fundació
+# Entorno Interactivo para Nexe Fundació
 
 Proyecto Final de Grado (TFG) orientado al diseño y desarrollo de un **entorno interactivo recreativo accesible para niños con múltiples discapacidades**, utilizando visión por computador y hardware de bajo coste.
 
 El sistema permite la interacción a través de gestos captados por cámara, ofreciendo actividades lúdicas adaptadas que fomentan la estimulación y el aprendizaje.
 
 ---
-## 📌 Índice
+## Índice
 
 - [Descripción](#descripción)
 - [Características](#características)
@@ -20,7 +20,7 @@ El sistema permite la interacción a través de gestos captados por cámara, ofr
 ---
 
 
-## 📖 Descripción
+## Descripción
 
 Este proyecto desarrolla un entorno interactivo que permite a niños con múltiples discapacidades interactuar con diferentes actividades mediante gestos, sin necesidad de dispositivos físicos complejos.
 
@@ -38,7 +38,7 @@ Está diseñado para ejecutarse en una **Raspberry Pi 5** con cámara, haciendo 
 
 ---
 
-## ⚙️ Requisitos
+## Requisitos
 
 ### Hardware
 - Raspberry Pi 5  
@@ -52,7 +52,7 @@ Está diseñado para ejecutarse en una **Raspberry Pi 5** con cámara, haciendo 
 
 ---
 
-## 🛠️ Instalación
+## Instalación
 
 **1- Verificación/Instalación de Git:**
 
@@ -77,7 +77,7 @@ cd Nexe-Fundacio
   sudo apt install python3-opencv -y
   python3 -m pip install --break-system-packages mediapipe
   ```
-## ▶️ Uso de la aplicación
+## Uso de la aplicación
 
     1. Ve a la carpeta Nexe-Fundacio/
     2. Haz doble clic en Nexe Entorno.desktop
@@ -88,7 +88,7 @@ Una vez iniciado:
   -  Los gestos permitirán interactuar con el entorno.
   -  Se mostrarán los elementos visuales en pantalla.
 
-## 📂 Estructura del proyecto
+## Estructura del proyecto
 ```bash
 Nexe-Fundacio/
 │
@@ -98,7 +98,7 @@ Nexe-Fundacio/
 └── README.md
 ```
 
-## 💻 Tecnologías utilizadas
+## Tecnologías utilizadas
 
 -  Python
 -  OpenCV
@@ -109,11 +109,11 @@ Nexe-Fundacio/
 ![Interfaz principal](Screenshots/demoentorno.png)
 ![Interfaz principal](Screenshots/demoentorno1.png)
 
-## 🧑‍🎓 AUTOR
-**Proyecto Final de Grado (TFG) - Rafael Da Mota**
+## AUTOR
+**Rafael Da Mota**
 
 ---
-# 🎮 Interactive Environment for Nexe Foundation
+# Interactive Environment for Nexe Foundation
 
 Final Degree Project (TFG) focused on the design and development of an **accessible interactive recreational environment for children with multiple disabilities**, using computer vision and low-cost hardware.
 
@@ -121,7 +121,7 @@ The system allows interaction through camera-based gesture recognition, offering
 
 ---
 
-## 📌 Index
+## Index
 
 - [Description](#description)
 - [Features](#features)
@@ -135,7 +135,7 @@ The system allows interaction through camera-based gesture recognition, offering
 
 ---
 
-## 📖 Description
+## Description
 
 This project develops an interactive environment that allows children with multiple disabilities to interact with different activities through gestures, without the need for complex physical devices.
 
@@ -143,7 +143,7 @@ It is designed to run on a **Raspberry Pi 5** with a camera, making the system a
 
 ---
 
-## ✨ Features
+## Features
 
 - Hand detection using computer vision.
 - Real-time interaction.
@@ -153,7 +153,7 @@ It is designed to run on a **Raspberry Pi 5** with a camera, making the system a
 
 ---
 
-## ⚙️ Requirements
+## Requirements
 
 ### Hardware
 - Raspberry Pi 5  
@@ -167,7 +167,7 @@ It is designed to run on a **Raspberry Pi 5** with a camera, making the system a
 
 ---
 
-## 🛠️ Installation
+## Installation
 
 **1- Verify/Install Git:**
 
@@ -193,7 +193,7 @@ sudo apt install python3-opencv -y
 python3 -m pip install --break-system-packages mediapipe
 ```
 
-## ▶️ Application Usage
+## Application Usage
     1. Go to the Nexe-Fundacio/ folder
     2. Double-click on Nexe Entorno.desktop
     3. The application will start automatically!
@@ -202,7 +202,7 @@ Once started:
   -  Gestures will allow interaction with the environment.
   -  Visual elements will be displayed on screen.
 
-## 📂 Project Structure
+## Project Structure
 ```bash
 Nexe-Fundacio/
 │
@@ -212,18 +212,18 @@ Nexe-Fundacio/
 └── README.md
 ```
 
-## 💻 Technologies Used
+## Technologies Used
 
 -  Python
 -  OpenCV
 -  MediaPipe Hands
 -  Raspberry Pi OS
 
-## 📷 Screenshots
+## Screenshots
 
 ![Interfaz principal](Screenshots/demoentorno.png)
 ![Interfaz principal](Screenshots/demoentorno1.png)
 
-## 🧑‍🎓 AUTHOR
+## AUTHOR
 
-**Final Degree Project (TFG) – Rafael Da Mota**
+**Rafael Da Mota**
