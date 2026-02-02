@@ -89,6 +89,7 @@ Una vez iniciado:
   -  Se mostrarán los elementos visuales en pantalla.
 
 ## 📂 Estructura del proyecto
+```bash
 Nexe-Fundacio/
 │
 ├── Entorno/        # Código principal del entorno
