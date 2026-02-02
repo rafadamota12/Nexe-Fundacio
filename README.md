@@ -1,24 +1,58 @@
-# Entorno interactivo para Nexe Fundació
+# 🎮 Entorno Interactivo para Nexe Fundació
 
-**Diseño e implementación de un entorno recreativo interactivo orientado a niños con múltiples discapacidades**
+Proyecto Final de Grado (TFG) orientado al diseño y desarrollo de un **entorno interactivo recreativo accesible para niños con múltiples discapacidades**, utilizando visión por computador y hardware de bajo coste.
+
+El sistema permite la interacción a través de gestos captados por cámara, ofreciendo actividades lúdicas adaptadas que fomentan la estimulación y el aprendizaje.
+
+---
+## 📌 Índice
+
+- [Descripción](#descripción)
+- [Características](#características)
+- [Requisitos](#requisitos)
+- [Instalación](#instalación)
+- [Uso](#uso)
+- [Estructura del proyecto](#estructura-del-proyecto)
+- [Tecnologías utilizadas](#tecnologías-utilizadas)
+- [Capturas](#capturas)
+- [Autor](#autor)
+
+---
+
 
 ## 📖 Descripción
 
-Este proyecto consiste en una aplicación interactiva que facilita actividades recreativas para niños con discapacidades múltiples, fomentando su desarrollo mediante tecnología accesible.
+Este proyecto desarrolla un entorno interactivo que permite a niños con múltiples discapacidades interactuar con diferentes actividades mediante gestos, sin necesidad de dispositivos físicos complejos.
 
-## 🔧 Estrucutra del proyecto
-├── Nexe Entorno.desktop        # Acceso directo
-├── Entorno/                    # Código fuente
-├── Tests/                      # Modelos de prueba
-└── README.md
+Está diseñado para ejecutarse en una **Raspberry Pi 5** con cámara, haciendo el sistema accesible, portátil y de bajo coste.
 
-## 🚀 Instalación y Uso
+---
 
-Requisitos previos:
+## Características
 
-  - Raspberry Pi 5
-  - Cámara AI
-  - Conexión a Internet
+- Detección de manos mediante visión artificial.
+- Interacción en tiempo real.
+- Interfaz sencilla y visual.
+- Pensado para ser ampliable con nuevos juegos o actividades.
+- Compatible con Raspberry Pi.
+
+---
+
+## ⚙️ Requisitos
+
+### Hardware
+- Raspberry Pi 5  
+- Cámara compatible con Raspberry  
+
+### Software
+- Python 3.9 o superior  
+- OpenCV  
+- MediaPipe  
+- Git  
+
+---
+
+## 🛠️ Instalación
 
 **1- Verificación/Instalación de Git:**
 
@@ -38,23 +72,44 @@ Requisitos previos:
 **3- Instalación dependencias:**
 
   En el terminal, ejecutar:
-  
+    
+    sudo apt install python3 python3-pip
     sudo apt install python3-opencv -y
     python3 -m pip install --break-system-packages mediapipe
 
-**4- Ejecutar la aplicación**
+## ▶️ Uso de la aplicación
 
     1. Ve a la carpeta Nexe-Fundacio/
     2. Haz doble clic en Nexe Entorno.desktop
     3. ¡La aplicación se iniciará automáticamente!
 
+Una vez iniciado:
+  -  La cámara detectará las manos.
+  -  Los gestos permitirán interactuar con el entorno.
+  -  Se mostrarán los elementos visuales en pantalla.
 
-## 💻 Tecnologías
+## 📂 Estructura del proyecto
+Nexe-Fundacio/
+│
+├── Entorno/        # Código principal del entorno
+├── Tests/          # Pruebas
+├── main.py         # Archivo principal
+└── README.md
 
-- OpenCV para procesamiento de imágenes
-- Raspberry Pi y librerías específicas para hardware
-- MediaPipe Hands
 
+## 💻 Tecnologías utilizadas
+
+Python
+
+OpenCV
+
+MediaPipe
+
+Raspberry Pi OS
+
+## 📷 Capturas
+
+## 🧑‍🎓 AUTOR
 **Proyecto Final de Grado (TFG) - Rafael Da Mota**
 
 
