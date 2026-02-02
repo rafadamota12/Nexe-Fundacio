@@ -24,23 +24,23 @@ Requisitos previos:
 
   Abrir un terminal y ejecutar:
   
-  sudo apt update
-  sudo apt install git -y
-  git --version
+    sudo apt update
+    sudo apt install git -y
+    git --version
 
   Una vez se ve la versión de Git se puede seguir.
 
 **2- Clonar repositorio:**
 
-  git clone https://github.com/rafadamota12/Nexe-Fundacio.git
-  cd Nexe-Fundacio
+    git clone https://github.com/rafadamota12/Nexe-Fundacio.git
+    cd Nexe-Fundacio
 
 **3- Instalación dependencias:**
 
   En el terminal, ejecutar:
   
-  sudo apt install python3-opencv -y
-  python3 -m pip install --break-system-packages mediapipe
+    sudo apt install python3-opencv -y
+    python3 -m pip install --break-system-packages mediapipe
 
 **4- Ejecutar la aplicación**
 
