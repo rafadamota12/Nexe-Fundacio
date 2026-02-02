@@ -96,7 +96,7 @@ Nexe-Fundacio/
 ├── Tests/          # Pruebas
 ├── main.py         # Archivo principal
 └── README.md
-
+```
 
 ## 💻 Tecnologías utilizadas
 
