@@ -100,13 +100,10 @@ Nexe-Fundacio/
 
 ## 💻 Tecnologías utilizadas
 
-Python
-
-OpenCV
-
-MediaPipe
-
-Raspberry Pi OS
+-  Python
+-  OpenCV
+-  MediaPipe Hands
+-  Raspberry Pi OS
 
 ## 📷 Capturas
 
