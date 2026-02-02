@@ -221,7 +221,8 @@ Nexe-Fundacio/
 
 ## 📷 Screenshots
 
-(Add screenshots or GIFs of the application running)
+![Interfaz principal](Screenshots/demoentorno.png)
+![Interfaz principal](Screenshots/demoentorno1.png)
 
 ## 🧑‍🎓 AUTHOR
 
