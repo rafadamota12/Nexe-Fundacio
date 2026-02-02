@@ -1,4 +1,4 @@
-# Nexe-Fundació
+# Entorno interactivo para Nexe Fundació
 
 **Diseño e implementación de un entorno recreativo interactivo orientado a niños con múltiples discapacidades**
 
@@ -20,7 +20,7 @@ Requisitos previos:
   - Cámara AI
   - Conexión a Internet
 
-1. Verificación/Instalación de Git:
+**1- Verificación/Instalación de Git:**
 
   Abrir un terminal y ejecutar:
   
@@ -30,19 +30,19 @@ Requisitos previos:
 
   Una vez se ve la versión de Git se puede seguir.
 
-2. Clonar repositorio:
+**2- Clonar repositorio:**
 
   git clone https://github.com/rafadamota12/Nexe-Fundacio.git
   cd Nexe-Fundacio
 
-3. Instalación dependencias:
+**3- Instalación dependencias:**
 
   En el terminal, ejecutar:
   
   sudo apt install python3-opencv -y
   python3 -m pip install --break-system-packages mediapipe
 
-4. Ejecutar la aplicación
+**4- Ejecutar la aplicación**
 
     1. Ve a la carpeta Nexe-Fundacio/
     2. Haz doble clic en Nexe Entorno.desktop
