@@ -100,12 +100,19 @@ def main(alumno_dir: Path, screen_w: int | None = None, screen_h: int | None = N
     try:
         with mp_hands.Hands(min_detection_confidence=0.6, min_tracking_confidence=0.6) as hands:
             while True:
-                frame_rgb = picam2.capture_array()
-                h, w, _ = frame_rgb.shape
+                frame_cam = picam2.capture_array()
+                h, w, _ = frame_cam.shape
+
+                # 1) MediaPipe: SIEMPRE procesa una imagen RGB real
+                frame_for_mp = cv2.cvtColor(frame_cam, cv2.COLOR_BGR2RGB)
+
+                # 2) UI: lienzo negro para mostrar (no camara)
+                frame_ui = frame_cam.copy()
+                frame_ui[:] = 0
 
                 ZONAS = generar_zonas(w, h, N)
 
-                results = hands.process(frame_rgb)
+                results = hands.process(frame_for_mp)
                 hand_center_px = None
                 if results.multi_hand_landmarks:
                     wrist = results.multi_hand_landmarks[0].landmark[0]
@@ -115,7 +122,7 @@ def main(alumno_dir: Path, screen_w: int | None = None, screen_h: int | None = N
                 for key, (x1, y1, x2, y2) in ZONAS.items():
                     zone_w, zone_h = (x2 - x1), (y2 - y1)
                     src_rs = cv2.resize(imagenes[key], (zone_w, zone_h), interpolation=cv2.INTER_AREA)
-                    frame_rgb[y1:y2, x1:x2] = src_rs
+                    frame_ui[y1:y2, x1:x2] = src_rs
 
                 now = time.time()
                 target_actual = None
@@ -147,19 +154,20 @@ def main(alumno_dir: Path, screen_w: int | None = None, screen_h: int | None = N
 
                 for key, (x1, y1, x2, y2) in ZONAS.items():
                     color = (0, 0, 0) if key != current_target else (0, 0, 255)
-                    cv2.rectangle(frame_rgb, (x1, y1), (x2, y2), color, 50)
+                    cv2.rectangle(frame_ui, (x1, y1), (x2, y2), color, 50)
 
                 if hand_center_px is not None:
-                    cv2.circle(frame_rgb, hand_center_px, 30, (0, 0, 255), -1)
+                    cv2.circle(frame_ui, hand_center_px, 30, (0, 0, 255), -1)
 
                 if screen_w and screen_h:
-                    ui_show = cv2.resize(frame_rgb, (screen_w - 500, screen_h - 500), interpolation=cv2.INTER_AREA)
+                    ui_show = cv2.resize(frame_ui, (screen_w, screen_h), interpolation=cv2.INTER_AREA)
                 else:
-                    ui_show = frame_rgb
+                    ui_show = frame_ui
 
                 cv2.imshow(WINDOW, ui_show)
 
                 if cv2.waitKey(1) & 0xFF == 27:
+                    picam2.close()
                     break
     finally:
         cv2.destroyAllWindows()

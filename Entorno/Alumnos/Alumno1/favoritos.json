@@ -1,17 +1,11 @@
 {
   "alumno": "Alumno1",
   "favoritos": [
-    "Jugar",
-    "Lavabo",
     "Tinc_gana",
     "Vull_aigua",
     "bobesponja",
     "caillou",
     "coco",
-    "doralaexploradora",
-    "mickey",
-    "patrullacanina",
-    "pocoyo",
-    "pollitopio"
+    "doralaexploradora"
   ]
 }
