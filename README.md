@@ -106,6 +106,8 @@ Nexe-Fundacio/
 -  Raspberry Pi OS
 
 ## 📷 Capturas
+![Interfaz principal](Screenshots/demoentorno.png)
+![Interfaz principal](Screenshots/demoentorno1.png)
 
 ## 🧑‍🎓 AUTOR
 **Proyecto Final de Grado (TFG) - Rafael Da Mota**
