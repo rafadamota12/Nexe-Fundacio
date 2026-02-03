@@ -22,8 +22,9 @@ def grid_shape(n: int):
 
 def generar_zonas(w, h, n):
     rows, cols = grid_shape(n)
-
-    gap = 150  # separacion entre celdas
+    
+    gap_for_n = { 2: 150, 4: 150, 6: 150, 8: 80, 10: 60, 12: 60} #Separación entre celdas dependiendo del numero de imagenes elegidas
+    gap = gap_for_n.get(n, 40) #Valor por defecto
 
     # Tamaño de cada celda
     cell_w = (w - (cols + 1) * gap) // cols
